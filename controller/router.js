@@ -70,7 +70,7 @@ router.post("/login", async(req, res)=>{
             let loginUserDetails = await users.findOne({email:loginemail});
             console.log(loginemail);
             if(!loginUserDetails){
-                res.status(202).render("login", {err: "Enter Input Fields Values"});
+                res.status(202).render("login", {err: "Enter input Validate Information"});
             }else{
                 res.status(202).redirect("/");
             }

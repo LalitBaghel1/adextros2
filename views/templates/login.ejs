@@ -1,0 +1,101 @@
+<%- include('header') -%>
+<section class="container-fluid join_usbg sign_bg">
+	<div class="container">
+		<div class="row sign_align_center">
+			<div class="col-sm-4 col-md-5 col-lg-7">
+				<div class="sign_logo">
+					<a href="index.html">
+						<img src="images/logo.png">
+					</a>
+				</div>
+			</div>
+			<div class="col-sm-8 col-md-7 col-lg-5">
+				<div class="signup_form">
+					<h4>Login to your Account</h4>
+					<% if(typeof err != 'undefined'){ %>
+						<div class="alert alert-danger" id="removeAlert" style="display: block;">
+							<%= err %>
+						  </div>
+					<% } %>
+					<form action="/login" method="post">
+						<ul>
+							<li>
+								<label>Enter Email Address</label>
+								<input type="Email" name="email">
+							</li>
+							<li>
+								<label>Enter Password</label>
+								<input type="password" name="password">
+								<a href="/forgot-password" class="forgot_password">Forgot Password?</a>
+							</li>
+							<li>
+								<input type="submit" name="" value="Log In">
+							</li>
+						</ul>
+					</form>
+					<p class="sign_btn">Do not have an account?<a href="/signup"> Sign Up Free!</a></p>
+				</div>
+			</div>	
+		</div>
+	</div>
+	<!-- for img -->
+	<div class="join_us_img">
+		<img src="images/signup_bg.jpg">
+	</div>
+
+</section>
+<!-- start verify modal -->
+<div class="sign_verify_modal">
+	<div class="sign_verify_cntnt">
+		<a href="javascript:void(0);" class="sign_modal_close" onclick="hidemodal();"><i class="fas fa-times"></i></a>
+		<h4>We sent you a code</h4>
+		<p>Enter it below to verify <span>demo@gmail.com/+91 9876543210</span></p>
+		<label>Enter Verify Code</label>
+		<input type="text" name="">
+		<button class="resend_btn">Resend Code</button>
+		<button class="verify_btn">Verify</button>
+	</div>
+</div>
+<!-- end verify modal -->
+<script>
+
+	setTimeout(removeAlert, 2000);
+	function removeAlert(){
+		document.getElementById("removeAlert").innerHTML = " ";
+		document.getElementById("removeAlert").style.display = "none";
+	}
+</script>
+<script type="text/javascript">
+	function insteadf(btn_cntnt) {
+		let emailinput = document.getElementsByClassName("sign_email")[0];
+		let labelcntnt = document.getElementsByClassName("instead_lebal")[0]; 
+		if (emailinput.type == "email") {
+			emailinput.type = "number";
+			labelcntnt.innerHTML = "Enter Mobile Number";
+			btn_cntnt.innerHTML = "Use Mobile Number Instead";
+		}else if(emailinput.type == "number"){
+			emailinput.type = "email";
+			labelcntnt.innerHTML = "Enter Email";
+			btn_cntnt.innerHTML = "Use Email Instead";
+		}
+	}
+		let sign_modal = document.getElementsByClassName("sign_verify_modal")[0];
+		let sign_verify_cntnt = document.getElementsByClassName("sign_verify_cntnt")[0];
+	function showmodal(){
+		sign_modal.classList.add("active");
+		sign_verify_cntnt.classList.add("active");
+	}
+	function hidemodal(){
+		sign_modal.classList.remove("active");
+		sign_verify_cntnt.classList.remove("active");
+	}
+	window.onclick = function(event) {
+            if (event.target == sign_modal) {
+            sign_modal.classList.remove("active");
+            sign_verify_cntnt.classList.remove("active");
+          }
+	}
+</script>
+
+</body>
+</html>

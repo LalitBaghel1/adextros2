@@ -1,0 +1,53 @@
+<%- include('header') -%>
+<section class="container-fluid join_usbg sign_bg">
+	<div class="container">
+		<div class="row sign_align_center">
+			<div class="col-md-12">
+				<div class="table-responsive">
+					<table class="table">
+						<thead class="thead-dark">
+							<tr>
+							  <th>
+								  <h5>S.No</h5>
+								</th>
+							  <th>
+								  <h5>Title</h5>
+								</th>
+							  <th>
+								  <h5>Discription</h5>
+								</th>
+							  <th>
+								  <h5>Image</h5>
+								</th>
+							  <th>
+								  <h5>Action</h5>
+								</th>
+							</tr>
+						  </thead>
+						  <tbody>
+							<% blogdata.forEach((article,index) => { %>
+							<tr>
+							  <td><p><%= index+1 %></p></td>
+							  <td><p><%= article.title%></p></td>
+							  <td><p><%= article.discription %></p></td>
+							  <td>
+								  <img src="/uploadimages/<%= article.filename %>" style="width: 100px;" />
+							  </td>
+							  <td>
+								<div class="btn-group" role="group" aria-label="Basic example">
+									<a href="blogeditble/<%= article.id %>"  class="btn btn-success">Edit</a>
+									<a href="blogeditble/delete/<%= article.id %>"  class="btn btn-danger">Delete</a>
+								  </div>
+							  </td>
+							</tr>
+							<%}) %>
+						  </tbody>
+					</table>
+				  </div>
+			</div>	
+		</div>	
+	</div>
+</section>
+
+</body>
+</html>

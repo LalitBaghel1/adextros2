@@ -1,0 +1,211 @@
+<%- include('header'); -%>
+<section class="nav_absoult">
+  <nav class="navbar">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="#">
+          <img src="images/logo.png" class="logo">
+        </a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        
+        
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Testimonials</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Start Your Project <span class="menu_btn_icn"><img src="images/btn_icon.png"></span></span></a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+</section>
+    <!--end  nav  -->
+   <!-- slider start -->
+  
+   <div class="hom_slider">
+     <div class="owl-carousel owl-theme" id="owl-carousel1">
+    <% sliderData.forEach(article =>{%>
+      <div class="item">
+          <div class="homeslider_full">
+            <img src="/uploadimages/<%= article.filename %>" alt="<%= article.title%>" style="width: 100%;">
+              <div class="slider_content">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-sm-10 col-md-8">
+                        <h1 class="wow fadeInDown"><%= article.title%> </h1>
+                        <p><%= article.discription %> </p>
+                      </div>
+                      <div class="col-sm-2 col-md-4"></div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <%}) %>
+    </div>
+</div>
+  
+<!-- slider end -->
+<!-- start about us -->
+
+<div class="container-fluid about_space about_bg_pattern">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-md-5">
+        <div class="about_img">
+          <img src="images/about_img.jpg">
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-7 xs_p_t">
+        <div class="about_cntnt">
+          <h2 class="about_head">Sed ut perspiciatis unde omnis iste</h2>
+          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae</p>
+          <a href="#" class="anchor_btn">Read More</a>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <!-- wave -->
+    <div class="row about_wave">
+      <div class="col-md-12 padding_p">
+        <img src="images/wave.png" style="width: 100%;">
+      </div>
+    </div>
+    <!-- wave -->
+</div>
+<!-- end about us -->
+ 
+<!-- start service -->
+<div class="container-fluid about_space service_bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-md-4 md_p_t">
+        <div class="service_head service_m_height">
+          <h3>Services</h3>
+        </div>
+      </div>
+
+      <% serviceiData.forEach(service => { %>
+      <div class="col-sm-6 col-md-4 md_p_t">
+        <div class="service_padd service_m_height">
+          <img src="/uploadimages/<%= service.filename %>">
+          <h5 class="service_small_head"><%= service.title %></h5>
+        </div>
+      </div>
+      <% }) %>
+
+    </div>
+  </div>
+</div>
+<!-- end service -->
+<!-- start project -->
+<div class="container-fluid about_space">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6 col-md-3 col-sm-6">
+        <h4 class="heading_h4">2110+</h4>
+        <h6 class="heading_h6">PROJECTS LAUNCHED</h6>
+      </div>
+      <div class="col-xs-6 col-md-3 col-sm-6">
+        <h4 class="heading_h4">24/7</h4>
+        <h6 class="heading_h6">PROJECTS LAUNCHED</h6>
+      </div>
+      <div class="col-xs-6 col-md-3 col-sm-6 sm_p_t">
+        <h4 class="heading_h4">890+</h4>
+        <h6 class="heading_h6">PROJECTS LAUNCHED</h6>
+      </div>
+      <div class="col-xs-6 col-md-3 col-sm-6 sm_p_t">
+        <h4 class="heading_h4">1504</h4>
+        <h6 class="heading_h6">PROJECTS LAUNCHED</h6>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end project -->
+<!-- start testimorial -->
+<div class="container-fluid testimorial_space testimorial_bg">
+  <div class="row">
+    <div class="col-md-12" >
+      <h3 class="testimorial_head">Testimonials</h3>
+    </div>
+    <div class="col-md-12 testimorial_owl_t_p">
+      <div class="owl-carousel owl-theme" id="owl-carousel2">
+        <% testiData.forEach(testimonials =>{%>
+        <div class="item">
+          <div class="testimorial_box">
+            <p class="text-center"><%= testimonials.review %></p>
+            <div class="row testimorial_box_name_pa">
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="testimorial_img">
+                  <img src="/uploadimages/<%= testimonials.filename %>">
+                </div>
+              </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 testimorial_box_name_p">
+                  <h6><%= testimonials.name %></h6>
+                  <p><%= testimonials.authType %></p>
+                </div>
+            </div>
+          </div>
+        </div>
+        <% }) %>
+    </div>
+    </div>
+  </div>
+</div>
+<!-- end testimorial -->
+<!-- start blog -->
+<div class="container-fluid testimorial_space blog_bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h3 class="blog_head">Blog</h3>
+      </div>
+      <div class="col-md-6">
+        <div class="blog_all_btn">
+          <a href="#">View All<span class="blog_btn_icon"><img src="images/btn_icon.png"></span></a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row ">
+      <% blogdatas.forEach(article =>{%>
+      <div class="col-md-6" style="margin-top: 25px;">
+        <div class="blog_cntnt">
+          <div class="container-fluid">
+            <div class="row">
+            <div class="col-md-3 col-sm-3 blog_img_P_l ">
+              <div class="blog_img">
+                <img src="/uploadimages/<%= article.filename %>" alt="<%= article.title%>" />
+                  <p></p>
+              </div>
+            </div>
+            <div class="col-md-9 col-sm-9">
+              <div class="blog_txt">
+                <h6><%= article.title%></h6>
+                <p><%= article.discription %></p>
+                <a href="#">Read More<span class="blog_btn_icon"><img src="images/btn_icon.png"></span></a>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div><!--end blg content-->
+      </div><!--end col-->
+      <%}) %>
+    </div><!--end row-->
+  </div>
+</div>
+<!-- end blog -->
+<%- include('footer'); -%>

@@ -1,0 +1,55 @@
+<%- include('header') -%>
+<section class="container-fluid join_usbg sign_bg">
+	<div class="container">
+		<div class="row sign_align_center">
+			<div class="col-sm-4 col-md-5 col-lg-7">
+				<div class="sign_logo">
+					<a href="/">
+						<img src="images/logo.png">
+					</a>
+				</div>
+			</div>
+			<div class="col-sm-8 col-md-7 col-lg-5">
+				<div class="signup_form">
+					<h4>Blog form</h4>
+					<% if(typeof err != 'undefined'){ %>
+						<div class="alert alert-danger" id="removeAlert" style="display: block;">
+							<%= err %>
+						  </div>
+					<% } %>
+					<form method="post" action="/admin/blogeditble/<%= blogdata.id %>" enctype="multipart/form-data">
+						<ul>
+							<li>
+								<label>Enter Blog Title</label>
+								<input type="text" name="title" value="<%= blogdata.title %>">
+							</li>
+							<li>
+								<label>Enter Blog Discription</label>
+								<input type="text" name="discription" value="<%= blogdata.discription %>">
+							</li>
+							<li>
+								<label>Old Imge</label>
+								<img src="/uploadimages/<%= blogdata.filename %>" style="width:200px; border:1px solid #000;padding:5px;"/>
+							</li>
+							<li>
+								<label>Upload Blog Image</label>
+								<input type="file" name="filename">
+							</li>
+							
+							<li>
+								<input type="submit" name="submit" value="Add Blog">
+							</li>
+						</ul>
+					</form>
+				</div>
+			</div>	
+		</div>
+	</div>
+	<!-- for img -->
+	<div class="join_us_img">
+		<img src="images/signup_bg.jpg">
+	</div>
+
+</section>
+</body>
+</html>

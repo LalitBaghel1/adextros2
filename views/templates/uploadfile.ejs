@@ -1,0 +1,52 @@
+<%- include('header') -%>
+<section class="container-fluid join_usbg sign_bg">
+	<div class="container">
+		<div class="row sign_align_center">
+			<div class="col-sm-4 col-md-5 col-lg-7">
+				<div class="sign_logo">
+					<a href="/">
+						<img src="images/logo.png">
+					</a>
+				</div>
+			</div>
+			<div class="col-sm-8 col-md-7 col-lg-5">
+				<div class="signup_form">
+					<h4>Upload Image</h4>
+					<% if(typeof err != 'undefined'){ %>
+						<div class="alert alert-danger" id="removeAlert" style="display: block;">
+							<%= err %>
+						  </div>
+					<% } %>
+					<form method="post" action="/uploadfile" role="form" enctype="multipart/form-data">
+						<ul>
+							<li>
+								<label>Upload Image</label>
+								<input type="file" name="file">
+							</li>
+							
+							<li>
+								<input type="submit" name="submit" value="Upload Image">
+							</li>
+						</ul>
+					</form>
+				</div>
+			</div>	
+		</div>
+	</div>
+	<!-- for img -->
+	<div class="join_us_img">
+		<img src="images/signup_bg.jpg">
+	</div>
+
+</section>
+
+<script>
+
+	setTimeout(removeAlert, 2000);
+	function removeAlert(){
+		document.getElementById("removeAlert").innerHTML = " ";
+		document.getElementById("removeAlert").style.display = "none";
+	}
+</script>
+</body>
+</html>
